@@ -26,6 +26,36 @@ header{
     z-index: 50;
 
 }
+.menu.highlight{
+    background-color: rgb(232, 44, 44);
+}
+
+#menus{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    margin-top: 95px;
+}
+
+.menu{
+    color: white;
+    padding: 1em;
+    background-color: rgb(237, 195, 116);
+    margin: 0.5em;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.menu:hover{
+    background-color:  rgb(232, 44, 44);
+}
+
 
 .title{
     color:rgb(152, 164, 230);
@@ -72,7 +102,7 @@ header{
 }
 
 main{
-    margin-top: 80px;
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,35 +111,43 @@ main{
 
 .movie{
     width: 300px;
-    margin: 1rem;
+    /* margin: 1rem; */
+    margin: 15px;
     border-radius:3px;
-    box-shadow: 1px 4px 10px rgba(0,0,0,0.8);
-    background-color: var(--second-color);
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.7);
+    background-color: var(--primary-color);
     position: relative;
     overflow: hidden;
 }
 
 .movie img{
-    width: 100%;
+    left: 0;
+    margin: 0;
+    width:100%;
+
 }
 
 .movie-info{
+    height: 80px;
+    width: 100%;
     color:white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     letter-spacing: 0.5px;
+    background-color: var(--primary-color);
 }
 
 .movie-info h3{
     margin-top: 0;
 }
 .movie-info span{
-    background-color: var(--primary-color);
+    background-color: rgb(22, 0, 68);
     padding: 0.25rem 0.5rem;
     border-radius: 3px;
     font-weight: bold;
+    padding-bottom: 0.55rem;
 }
 .movie-info span.green{
     color: lightgreen;
@@ -135,4 +173,9 @@ main{
 
 .movie:hover .overview{
     transform: translateY(0);
+}
+
+#alert-no-movie{
+    margin-top: 300px;
+    color: rgba(255, 255, 255, 0.445);
 }
