@@ -10,6 +10,16 @@ const search = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
 const menusEl = document.getElementById('menus');
 
+const current = document.getElementById('current');
+const pre = document.getElementById('pre');
+const next = document.getElementById('next');
+
+let currentPage = 1;
+let nextPage = 2;
+let PrePage = 3;
+let totalPages = 100;
+let lastUrl = ''
+
 const genres = [
     {
         "id":28,
@@ -108,6 +118,7 @@ const highlightSelection = () => {
     menus.forEach(menu=>{
         menu.classList.remove('highlight')
     })
+    clearBtn();
     if(selectGenre.length !== 0){
         selectGenre.forEach((id)=>{
             const highlightMenu = document.getElementById(id);
@@ -116,14 +127,36 @@ const highlightSelection = () => {
     }
 }
 
+let clearBtn = () => {
+    let clearBtn = document.getElementById('clear');
+    if(clearBtn){
+
+    } else{
+        let clear = document.createElement('div');
+        clear.classList.add('tag','highlight');
+        clear.id = 'clear';
+        clear.innerText = 'Clear ALL';
+        clear.addEventListener('click', ()=>{
+            selectGenre = [];
+            getGenre()
+            getMovies(API_URL)
+        })
+        menusEl.append(clear);
+    }
+}
+
 getMovies(API_URL);
 
 function getMovies (url){
-    
+    lastUrl = url;
     fetch(url).then(res => res.json()).then(data => {
         console.log(data.results);
         if(data.results.length !== 0){
             showMovies(data.results);
+            currentPage = data.page;
+            nextPage = currentPage + 1;
+            PrePage = currentPage - 1;
+            totalPages = data.total_pages;   
         } else{
             main.innerHTML = `<h1 id="alert-no-movie">결과: NO MOVIE</h1>`
         }

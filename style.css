@@ -179,3 +179,40 @@ main{
     margin-top: 300px;
     color: rgba(255, 255, 255, 0.445);
 }
+
+#clear{
+    color: white;
+    padding: 1em;
+    background-color: rgb(255, 38, 0);
+    margin: 0.5em;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.pagenation{
+    display: flex;
+    margin: 10px 30px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.current{   
+    background-color: #22254b;
+    border-radius: 50%;
+    padding: 0.6em 1em;
+}
+
+.page{
+    padding: 1em;
+    cursor: pointer;
+}
+
+.page.disabled{
+    cursor: not-allowed;
+    color:gray
+}
